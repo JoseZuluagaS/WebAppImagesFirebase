@@ -42,6 +42,8 @@ class MainPage extends Component {
                         nombre: files[0].name
                     })
                 }
+
+
             })
 
     }
@@ -90,6 +92,11 @@ class MainPage extends Component {
                     DownloadURL: url
                 });
                 NotificationManager.success('Success message', 'Se ha subido la imagen a la carpeta!!')
+
+                fetch('http://192.168.1.11:5000/Broadcast')
+                    .then(function(response) {
+                        NotificationManager.success('Success message', 'Se notifico a todos los usuarios de tu envio!!') 
+                    });
             })
         })
 
